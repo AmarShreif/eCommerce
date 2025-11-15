@@ -1,0 +1,142 @@
+<nav class="bg-gray-300 border-gray-200 dark:bg-gray-900">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between py-1.5 px-4">
+    <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse"
+      ><img src="/images/freshcart-logo-bluecart-blacktext.svg" alt="Fresh Cart Logo" />
+    </a>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+    <div class="hidden ms-4 grow w-full md:flex md:w-auto" id="navbar-default">
+      <ul
+        class="font-medium flex flex-col mt-4 rounded-lg md:flex-row gap-1 md:gap-0 md:space-x-5 border border-gray-100 md:border-0 rtl:space-x-reverse md:mt-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        @if (isLogin) {
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+
+        <li>
+          <a
+            routerLink="/products"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Products</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/categories"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Categories</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/brands"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Brands</a
+          >
+        </li>
+        }
+      </ul>
+      <ul
+        class="font-medium flex ms-auto flex-col gap-1 md:gap-0 mt-4 rounded-lg md:flex-row md:space-x-5 border border-gray-100 md:border-0 rtl:space-x-reverse md:mt-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        <li class="flex items-center space-x-2">
+          <a herf="#" class="block py-2 rounded-sm md:p-0" aria-current="page"
+            ><i class="fab fa-facebook cursor-pointer"></i
+          ></a>
+          <a herf="#" class="block py-2 rounded-sm md:p-0" aria-current="page"
+            ><i class="fab fa-twitter cursor-pointer"></i
+          ></a>
+          <a herf="#" class="block py-2 rounded-sm md:p-0" aria-current="page"
+            ><i class="fab fa-linkedin-in cursor-pointer"></i
+          ></a>
+          <a herf="#" class="block py-2 rounded-sm md:p-0" aria-current="page"
+            ><i class="fab fa-instagram cursor-pointer"></i
+          ></a>
+        </li>
+
+        @if (isLogin === false) {
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/register"
+            routerLinkActive="text-white bg-blue-950"
+            class="block py-2 px-3 rounded-sm md:p-2 hover:bg-blue-950 hover:text-white transition-all duration-500"
+            aria-current="page"
+            >Register</a
+          >
+        </li>
+
+        }@else {
+        <li>
+          <a
+            routerLink="/cart"
+            class="block relative focus:text-blue-950 py-2 rounded-sm md:p-2"
+            aria-current="page"
+            ><i class="fas fa-cart-shopping text-2xl ms-2 md:ms-0 transition-all duration-400"></i>
+            <!-- <span
+              class="absolute start-6 top-1 md:top-0.5 md:end-1 text-[10px] count text-white bg-blue-950"
+              >{{ count() }}</span
+            > -->
+            <span
+              class="absolute start-6 top-1 md:top-0.5 md:end-1 z-10 text-center text-[10px] font-bold text-white bg-blue-950 min-w-[18px] h-[18px] flex items-center justify-center rounded-full leading-none"
+            >
+              {{ count() }}
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="signOut()"
+            class="block py-2 cursor-pointer px-3 hover:bg-blue-950 hover:text-white transition-all duration-500 rounded-sm md:p-2"
+            aria-current="page"
+            >SignOut</a
+          >
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

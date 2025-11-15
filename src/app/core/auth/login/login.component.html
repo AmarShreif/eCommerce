@@ -1,0 +1,94 @@
+<section>
+  <h1 class="text-center mt-3 mb-2 font-light text-2xl md:text-3xl">Login Now</h1>
+
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="w-[70%] md:w-[55%] mb-8 mx-auto">
+    <!--  -->
+    <!-- @let emailControl = loginForm.get('email'); -->
+    <!--  -->
+    <!-- @let passControl = loginForm.get('password'); -->
+    <!--  -->
+
+    <!-- <div>
+      <label for="email" class="main-label">email:</label>
+      <input
+        type="email"
+        formControlName="email"
+        id="email"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+
+      @if (emailControl?.errors && emailControl?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (emailControl?.getError('required')) {
+          <li>Input is required</li>
+
+          }@else if (emailControl?.getError('email')) {
+          <li>Please enter a vaild email address</li>
+
+          }
+        </ul>
+      </div>
+      }
+    </div>
+    <div>
+      <label for="password" class="main-label">password:</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+      @if (passControl?.errors && passControl?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (passControl?.getError('required')) {
+          <li>Input is required</li>
+
+          }@else if (passControl?.getError('pattern')) {
+          <li>Custom field should match the pattern</li>
+
+          }
+        </ul>
+      </div>
+      }
+    </div> -->
+
+    <app-input
+      [control]="loginForm.get('email')"
+      [typeInput]="'email'"
+      [idInput]="'email'"
+      [labelInput]="'Email:'"
+    ></app-input>
+
+    <app-input
+      [control]="loginForm.get('password')"
+      [idInput]="'password'"
+      [labelInput]="'Password:'"
+    >
+      Custom field should match the pattern
+    </app-input>
+    <a routerLink="/forget" class="cursor-pointer text-blue-800 mt-2 hover:underline"
+      >ForgetPassword</a
+    >
+    <button class="btn mt-4 block w-[30%] ms-[70%] md:w-1/5 md:ms-[80%]" type="submit">
+      Login @if (isLoading()) {
+      <span> <i class="fas fa-spinner animate-spin"></i></span>
+      }
+    </button>
+    @if (msgError()) {
+    <p class="mt-2 mb-8 p-2 rounded-lg text-center text-red-900 bg-red-200">{{ msgError() }}</p>
+
+    }
+  </form>
+</section>

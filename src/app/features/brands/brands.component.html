@@ -1,0 +1,18 @@
+<section>
+  <div class="container">
+    <h1 class="text-4xl font-medium text-center text-blue-900 my-10">All Brands</h1>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      @for (brand of brandList(); track brand._id) {
+      <div
+        data-modal-target="static-modal"
+        data-modal-toggle="static-modal"
+        class="relative shadow-lg rounded-xl mb-3 hover:cursor-pointer hover:shadow-blue-900 transition-all duration-500 overflow-hidden"
+      >
+        <img class="h-[250px] w-full object-cover" [src]="brand.image" [alt]="brand.name" />
+        <h2 class="text-center text-2xl font-medium my-2 text-blue-900">{{ brand.name }}</h2>
+      </div>
+
+      }
+    </div>
+  </div>
+</section>

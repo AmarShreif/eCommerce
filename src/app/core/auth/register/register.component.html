@@ -1,0 +1,218 @@
+<section>
+  <h1 class="text-center mt-3 mb-2 font-light text-2xl md:text-3xl">Register Now</h1>
+
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="submitForm()"
+    class="w-[70%] md:w-[55%] mb-8 mx-auto"
+  >
+    <!-- @let nameControl = registerForm.get('name'); -->
+    <!--  -->
+    <!-- @let emailControl = registerForm.get('email'); -->
+    <!--  -->
+    <!-- @let passControl = registerForm.get('password'); -->
+    <!--  -->
+    <!-- @let phoneControl = registerForm.get('phone'); -->
+    <!--  -->
+
+    <app-input
+      [control]="registerForm.get('name')"
+      [typeInput]="'text'"
+      [idInput]="'name'"
+      [labelInput]="'Name:'"
+    ></app-input>
+    <app-input
+      [control]="registerForm.get('email')"
+      [typeInput]="'email'"
+      [idInput]="'email'"
+      [labelInput]="'Email:'"
+    ></app-input>
+    <app-input
+      [control]="registerForm.get('password')"
+      [idInput]="'password'"
+      [labelInput]="'Password:'"
+    >
+      Custom field should match the pattern
+    </app-input>
+
+    <app-input
+      [control]="registerForm.get('rePassword')"
+      [idInput]="'rePassword'"
+      [labelInput]="'RePassword:'"
+    ></app-input>
+
+    <app-input
+      [control]="registerForm.get('phone')"
+      [typeInput]="'tel'"
+      [idInput]="'phone'"
+      [labelInput]="'Phone:'"
+    >
+      Accept only egypt phone numbers
+    </app-input>
+
+    <!-- <div>
+      <label for="name" class="main-label">name:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+
+      @if (nameControl?.errors && nameControl?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (nameControl?.getError('required')) {
+          <li>Input is required</li>
+
+          }@else if (nameControl?.getError('minlength')) {
+          <li>Input should be more than or equal 2 chars</li>
+
+          }@else if (nameControl?.getError('maxlength')) {
+          <li>Input should be less than or equal 20 chars</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+    <div>
+      <label for="email" class="main-label">email:</label>
+      <input
+        type="email"
+        formControlName="email"
+        id="email"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+
+      @if (emailControl?.errors && emailControl?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (emailControl?.getError('required')) {
+          <li>Input is required</li>
+
+          }@else if (emailControl?.getError('email')) {
+          <li>Please enter a vaild email address</li>
+
+          }
+        </ul>
+      </div>
+      }
+    </div>
+
+    <div class="relative">
+      <label for="password" class="main-label">Password:</label>
+
+      <div class="relative">
+        <input
+          [type]="flag ? 'password' : 'text'"
+          id="password"
+          formControlName="password"
+          class="main-input pr-10"
+          placeholder=" "
+          required
+        />
+
+        @if (passControl?.value) {
+        <span
+          (click)="flag = !flag"
+          class="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500 transition-opacity duration-300"
+        >
+          @if (flag) {
+          <i class="fas fa-eye"></i>
+          } @else {
+          <i class="fas fa-eye-slash"></i>
+          }
+        </span>
+        }
+      </div>
+
+      @if (passControl?.errors && passControl?.touched) {
+      <div
+        class="flex p-2 mt-1 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (passControl?.getError('required')) {
+          <li>Input is required</li>
+          } @else if (passControl?.getError('pattern')) {
+          <li>Custom field should match the pattern</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+        <div>
+      <label for="rePassword" class="main-label">rePassword:</label>
+      <input
+        type="password"
+        id="rePassword"
+        formControlName="rePassword"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+      @if (registerForm.getError('mismatch') && registerForm.get('rePassword')?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          <li>Password confirmation is incorrect</li>
+        </ul>
+      </div>
+      }
+    </div>
+
+    <div>
+      <label for="phone" class="main-label">phone:</label>
+      <input
+        type="tel"
+        id="phone"
+        formControlName="phone"
+        class="main-input"
+        placeholder=" "
+        required
+      />
+      @if (phoneControl?.errors && phoneControl?.touched) {
+      <div
+        class="flex p-2 mt-[1px] text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <ul class="mt-1 list-disc ms-4">
+          @if (phoneControl?.getError('required')) {
+          <li>Input is required</li>
+
+          }@else if (phoneControl?.getError('pattern')) {
+          <li>Accept only egypt phone numbers</li>
+
+          }
+        </ul>
+      </div>
+      }
+    </div>  -->
+
+    <button
+      class="btn mt-4 block w-[30%] ms-[70%] md:w-1/5 md:ms-[80%]"
+      [disabled]="isLoading()"
+      type="submit"
+    >
+      Register @if (isLoading()) {
+      <span> <i class="fas fa-spinner animate-spin"></i></span>
+      }
+    </button>
+    @if (msgError()) {
+    <p class="mt-2 mb-8 p-2 rounded-lg text-center text-red-900 bg-red-200">{{ msgError() }}</p>
+
+    }
+  </form>
+</section>

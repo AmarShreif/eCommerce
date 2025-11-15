@@ -1,0 +1,16 @@
+<app-popular-categories></app-popular-categories>
+<section>
+  <div class="container">
+    <div class="parent mt-6 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      @for (category of categoriesList(); track category._id) {
+      <div
+        [routerLink]="['/specificCategories', category._id]"
+        class="shadow-lg rounded-xl rounded-t-2xl mb-3 hover:cursor-pointer hover:shadow-blue-900 transition-all duration-500"
+      >
+        <img class="h-[280px] w-full" [src]="category.image" [alt]="category.name" />
+        <h2 class="text-center text-lg my-2 text-blue-900">{{ category.name }}</h2>
+      </div>
+      }
+    </div>
+  </div>
+</section>

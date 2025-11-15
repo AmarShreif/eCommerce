@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+@utility container {
+  margin-inline: auto;
+}
+/* بستخدمها عشان لو عايز اعدل ع كلاس معين واحط فيه الي انا عايزه */
+@layer components {
+  .card {
+    @apply border border-gray-400 shadow-lg p-2 relative rounded;
+  }
+  .btn {
+    @apply disabled:bg-gray-500 disabled:cursor-not-allowed bg-blue-950 text-white p-2 rounded-lg w-full mt-1.5 cursor-pointer hover:bg-blue-900 transition-colors duration-200;
+  }
+  .main-input {
+    @apply bg-gray-50 border p-1.5 border-gray-300 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full mx-auto  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+  .main-label {
+    @apply block my-2  text-sm dark:text-white;
+  }
+  /* بستخدم فيها مجموعه من كلااااسات وبحطهم في كلام واحد ولما بعوذ استخدمهم بنده ع كلاس الواحد */
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 20px;
+}
+:root {
+  --main-color: #162556;
+  --font-family: 'Encode Sans Expanded', sans-serif;
+}
+body {
+  font-family: var(--font-family);
+}
+
+.btn-main {
+  background-color: var(--main-color);
+  padding: 7px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+.btn-main:hover {
+  background-color: #1e3a8a;
+}
