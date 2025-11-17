@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
               this.msgError.set('');
               this.cookieService.set('token', res.token);
               console.log(this.authService.deCodeToken());
-              this.toastrService.success(res.message);
+              this.toastrService.info(res.message);
 
               this.router.navigate(['/home']);
             }

@@ -5,9 +5,9 @@
       @for (category of categoriesList(); track category._id) {
       <div
         [routerLink]="['/specificCategories', category._id]"
-        class="shadow-lg rounded-xl rounded-t-2xl mb-3 hover:cursor-pointer hover:shadow-blue-900 transition-all duration-500"
+        class="shadow-lg rounded-xl rounded-t-2xl mb-3 hover:cursor-pointer hover:shadow-[0_0_25px_#162556] transition-all duration-300"
       >
-        <img class="h-[280px] w-full" [src]="category.image" [alt]="category.name" />
+        <img class="h-[280px] w-full rounded-xl" [src]="category.image" [alt]="category.name" />
         <h2 class="text-center text-lg my-2 text-blue-900">{{ category.name }}</h2>
       </div>
       }

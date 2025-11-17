@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
           next: (res) => {
             console.log(res);
             if (res.message === 'success') {
-              this.toastrService.success(res.message);
+              this.toastrService.info(res.message);
 
               this.router.navigate(['/login']);
             }

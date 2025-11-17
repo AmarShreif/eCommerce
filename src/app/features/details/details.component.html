@@ -5,18 +5,25 @@
       <div class="col-span-3">
         <img [src]="productDetails().imageCover" class="w-full" [alt]="productDetails().title" />
       </div>
+
       <div class="col-span-9">
         <h2 class="text-2xl">{{ productDetails().title }}</h2>
-        <p class="text-gray-700 text-sm my-2">{{ productDetails().description }}</p>
+
+        <p class="text-gray-700 text-sm my-2">
+          {{ productDetails().description }}
+        </p>
+
         <span>{{ productDetails().category.name }}</span>
+
         <div class="flex items-center justify-between">
           <span>{{ productDetails().price | currency : 'GBP' }}</span>
-          <span
-            >{{ productDetails().ratingsAverage }}
+          <span>
+            {{ productDetails().ratingsAverage }}
             <i class="fas fa-star text-yellow-500"></i>
           </span>
         </div>
-        <button (click)="addProductToCart(productDetails()._id)" class="btn mt-4">
+
+        <button (click)="addProductToCart(productDetails()._id!)" class="btn mt-4">
           Add To Cart
         </button>
       </div>
