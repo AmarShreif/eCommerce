@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-    data: { renderMode: RenderMode.Prerender } // ✅ ضع المعلومات هنا
+    data: { renderMode: RenderMode.Prerender }
   },
 
   {
